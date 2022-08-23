@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'admin#index'
+  root 'student#index'
 end

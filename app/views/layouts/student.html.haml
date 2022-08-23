@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title AmsApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'student', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'student', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://kit.fontawesome.com/6d90f39943.js"}
+  %body.hold-transition.sidebar-mini.layout-fixed
+    .wrapper
+      = render "layouts/student_nav"
+      = render "layouts/student_side_nav"
+      = yield
+      = render "layouts/student_footer"
