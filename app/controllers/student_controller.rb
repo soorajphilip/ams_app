@@ -3,6 +3,7 @@ class StudentController < ApplicationController
   end
 
   def profile
+    @current_user = current_user
   end
 
   def edit_profile
