@@ -20,3 +20,5 @@ window.$ = window.jQuery = jQuery;
 
 require("bootstrap");
 require("admin-lte");
+
+global.toastr = require("toastr")

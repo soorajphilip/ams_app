@@ -14,6 +14,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'pry', '~> 0.14.1'
 
+gem 'devise'
+
+gem 'toastr-rails'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -23,6 +27,7 @@ group :development do
   # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'letter_opener'
 end
 
 group :test do
