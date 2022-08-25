@@ -1,40 +1,86 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :name
-    %br/
-    = f.text_field :name, autofocus: true
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+%section{:style => "background-color: #eee;"}
+  .container.py-3
+    .d-flex.justify-content-between
+      %h2.mb-3 Edit Profile
+      = link_to 'Back', s_my_profile_path, class: 'btn btn-primary mb-3'
+    .row
+      .col
+        %nav.bg-light.rounded-3.p-3.mb-4{"aria-label" => "breadcrumb"}
+          %ol.breadcrumb.mb-0
+            %li.breadcrumb-item
+              = link_to 'Dashboard', s_dashboard_path, class: 'text-black'
+            %li.breadcrumb-item
+              = link_to 'Profile', s_my_profile_path, class: 'text-black'
+            %li.breadcrumb-item.active{"aria-current" => "page"} Edit Profile
+    .row.bg-white
+      .col-md-3.border-right
+        .d-flex.flex-column.align-items-center.text-center.p-3.py-5
+          %img.rounded-circle.mt-5{:src => "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg", :width => "150px"}/
+          %span.font-weight-bold= @current_user.name.titleize
+          %span.text-black-50= @current_user.email
+          %span
+      .col-md-5.border-right
+        .p-3.py-5
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+            = render "devise/shared/error_messages", resource: resource
+            .d-flex.justify-content-between.align-items-center.mb-3
+              %h4.text-right Profile Settings
+            .row.mt-2
+              .col-md-6
+                = f.label :name, class: 'labels'
+                = f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Name'
+              .col-md-6
+                %label.labels Last Name
+                %input.form-control{:placeholder => "surname", :type => "text", :value => ""}/
+            .row.mt-3
+              .col-md-12
+                = f.label :email, 'Email ID', class: 'labels'
+                = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                %div
+                  Currently waiting confirmation for: #{resource.unconfirmed_email}
+            .row.mt-3
+              .col-md-12
+                = f.label :password, class: 'labels'
+                %i (leave blank if you don't want to change it)
+                %br/
+                = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+                - if @minimum_password_length
+                  %em
+                    = @minimum_password_length
+                    characters minimum
+            .row.mt-3
+              .col-md-12
+                = f.label :password_confirmation, class: 'labels'
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+            .row.mt-3
+              .col-md-12
+                = f.label :current_password, class: 'labels'
+                %i (we need your current password to confirm your changes)
+                %br/
+                = f.password_field :current_password, autocomplete: "current-password", class: 'form-control'
+            .mt-5.text-center
+              = f.submit "Save Profile", class: 'btn btn-primary profile-button'
+      .col-md-4
+        .p-3.py-5
+          .d-flex.justify-content-between.align-items-center.experience
+            %span Edit Experience
+            %span.border.px-3.p-1.add-experience
+              %i.fa.fa-plus>
+              \&#160;Experience
+          %br/
+          .col-md-12
+            %label.labels Experience in Designing
+            %input.form-control{:placeholder => "experience", :type => "text", :value => ""}/
+          %br/
+          .col-md-12
+            %label.labels Additional Details
+            %input.form-control{:placeholder => "additional details", :type => "text", :value => ""}/
+
+  .container.py-3
+    .row.bg-white
+      .cancel-account-box.mt-3.mb-2.ms-2
+        %h4 Cancel Account
+        %p
+          Unhappy? #{button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete}

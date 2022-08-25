@@ -2,16 +2,14 @@
   .container.py-3
     .d-flex.justify-content-between
       %h2.mb-3 My Profile
-      = link_to 'Edit Profile', s_edit_profile_path, class: 'btn btn-primary mb-3'
-    / .row
-    /   .col
-    /     %nav.bg-light.rounded-3.p-3.mb-4{"aria-label" => "breadcrumb"}
-    /       %ol.breadcrumb.mb-0
-    /         %li.breadcrumb-item
-    /           %a{:href => "#"} Home
-    /         %li.breadcrumb-item
-    /           %a{:href => "#"} User
-    /         %li.breadcrumb-item.active{"aria-current" => "page"} User Profile
+      = link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary mb-3'
+    .row
+      .col
+        %nav.bg-light.rounded-3.p-3.mb-4{"aria-label" => "breadcrumb"}
+          %ol.breadcrumb.mb-0
+            %li.breadcrumb-item
+              = link_to 'Dashboard', s_dashboard_path, class: 'text-black'
+            %li.breadcrumb-item.active{"aria-current" => "page"} Profile
     .row
       .col-lg-4
         .card.mb-4
