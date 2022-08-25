@@ -12,17 +12,25 @@
             %li.breadcrumb-item
               = link_to 'Profile', s_my_profile_path, class: 'text-black'
             %li.breadcrumb-item.active{"aria-current" => "page"} Edit Profile
-    .row.bg-white
-      .col-md-3.border-right
-        .d-flex.flex-column.align-items-center.text-center.p-3.py-5
-          %img.rounded-circle.mt-5{:src => "https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg", :width => "150px"}/
-          %span.font-weight-bold= @current_user.name.titleize
-          %span.text-black-50= @current_user.email
-          %span
-      .col-md-5.border-right
-        .p-3.py-5
-          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-            = render "devise/shared/error_messages", resource: resource
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .row.bg-white
+        .col-md-3.border-right
+          .d-flex.flex-column.align-items-center.text-center.p-3.py-5
+            - if current_user.avatar.present?
+              = image_tag(current_user.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle mt-5 mb-3")
+            - else
+              = image_tag "default_profile.png", alt: 'image', class: 'rounded-circle mt-5 mb-3', width: "150px"
+            %span.mb-3
+              %i.fa-solid.fa-pen.change-picture-icon{style: "cursor: pointer;"}
+              .d-flex.align-items-center
+                .col-sm-12= f.file_field :avatar, class: "picture-field form-control d-none"
+                %i.fa-solid.fa-xmark.close-picture-field.d-none{style: "cursor: pointer;"}
+            %span.font-weight-bold= @current_user.name.titleize
+            %span.text-black-50= @current_user.email
+            %span
+        .col-md-5.border-right
+          .p-3.py-5
             .d-flex.justify-content-between.align-items-center.mb-3
               %h4.text-right Profile Settings
             .row.mt-2
@@ -61,22 +69,22 @@
                 %br/
                 = f.password_field :current_password, autocomplete: "current-password", class: 'form-control'
             .mt-5.text-center
-              = f.submit "Save Profile", class: 'btn btn-primary profile-button'
-      .col-md-4
-        .p-3.py-5
-          .d-flex.justify-content-between.align-items-center.experience
-            %span Edit Experience
-            %span.border.px-3.p-1.add-experience
-              %i.fa.fa-plus>
-              \&#160;Experience
-          %br/
-          .col-md-12
-            %label.labels Experience in Designing
-            %input.form-control{:placeholder => "experience", :type => "text", :value => ""}/
-          %br/
-          .col-md-12
-            %label.labels Additional Details
-            %input.form-control{:placeholder => "additional details", :type => "text", :value => ""}/
+              = f.submit "Save Profile", class: 'btn btn-primary profile-button disabled'
+        .col-md-4
+          .p-3.py-5
+            .d-flex.justify-content-between.align-items-center.experience
+              %span Edit Experience
+              %span.border.px-3.p-1.add-experience
+                %i.fa.fa-plus>
+                \&#160;Experience
+            %br/
+            .col-md-12
+              %label.labels Experience in Designing
+              %input.form-control{:placeholder => "experience", :type => "text", :value => ""}/
+            %br/
+            .col-md-12
+              %label.labels Additional Details
+              %input.form-control{:placeholder => "additional details", :type => "text", :value => ""}/
 
   .container.py-3
     .row.bg-white
@@ -84,3 +92,30 @@
         %h4 Cancel Account
         %p
           Unhappy? #{button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete}
+
+:javascript
+  $(function(){
+    $('.change-picture-icon').on('click', function(){
+      $(this).addClass('d-none');
+      $('.picture-field, .close-picture-field').removeClass('d-none');
+    });
+    $('.close-picture-field').on('click', function(){
+      $(this).addClass('d-none');
+      $('.picture-field').addClass('d-none');
+      $('.change-picture-icon').removeClass('d-none');
+    });
+    $('#user_current_password').on('keyup', function(){
+      if( $(this).val().length != '' ){
+        $('.profile-button').removeClass('disabled')
+      }
+      else {
+        $('.profile-button').addClass('disabled')
+      }
+    })
+  });
+  $("form").bind("keypress", function (e) {
+    if (e.keyCode == 13) {
+        e.preventDefault()
+    }
+  });
+

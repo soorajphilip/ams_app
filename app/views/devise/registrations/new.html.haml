@@ -18,6 +18,7 @@
                 %i.fas.fa-envelope.fa-lg.me-3.fa-fw
                 .form-outline.flex-fill.mb-0.field
                   = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', id: 'form3Example3c', placeholder: 'Your Email'
+
               .d-flex.flex-row.align-items-center.mb-4
                 %i.fas.fa-lock.fa-lg.me-3.fa-fw
                 .form-outline.flex-fill.mb-0.field
@@ -26,6 +27,7 @@
                       (#{@minimum_password_length} characters minimum)
                   %br/
                   = f.password_field :password, autocomplete: "new-password", class: 'form-control', id: 'form3Example4c', placeholder: 'Password'
+
               .d-flex.flex-row.align-items-center.mb-4
                 %i.fas.fa-key.fa-lg.me-3.fa-fw
                 .form-outline.flex-fill.mb-0.field
