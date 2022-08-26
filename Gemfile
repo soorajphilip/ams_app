@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 gem 'pry', '~> 0.14.1'
+gem 'pry-rails', '~> 0.3.9'
 gem 'pg'
 gem 'image_processing', '~> 1.12', '>= 1.12.2'
 gem 'file_validators'

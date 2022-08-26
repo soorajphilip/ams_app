@@ -15,110 +15,188 @@
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render "devise/shared/error_messages", resource: resource
       .row.bg-white
-        .col-md-3.border-right
-          .d-flex.flex-column.align-items-center.text-center.p-3.py-5
-            - if current_user.avatar.present?
-              = image_tag(current_user.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle mt-5 mb-3")
-            - else
-              = image_tag "default_profile.png", alt: 'image', class: 'rounded-circle mt-5 mb-3', width: "150px"
-            %span.mb-3
-              %i.fa-solid.fa-pen.change-picture-icon{style: "cursor: pointer;"}
-              .d-flex.align-items-center
-                .col-sm-12= f.file_field :avatar, class: "picture-field form-control d-none"
-                %i.fa-solid.fa-xmark.close-picture-field.d-none{style: "cursor: pointer;"}
-            %span.font-weight-bold= @current_user.name.titleize
-            %span.text-black-50= @current_user.email
-            %span
-        .col-md-5.border-right
-          .p-3.py-5
-            .d-flex.justify-content-between.align-items-center.mb-3
-              %h4.text-right Profile Settings
-            .row.mt-2
-              .col-md-6
-                = f.label :name, class: 'labels'
-                = f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Name'
-              .col-md-6
-                %label.labels Last Name
-                %input.form-control{:placeholder => "surname", :type => "text", :value => ""}/
-            .row.mt-3
+        = f.fields_for :student_profile do |s|
+          .col-md-3.border-right
+            .d-flex.flex-column.align-items-center.text-center.p-3.py-5
+              - if current_user.avatar.present?
+                = image_tag(current_user.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle mt-5 mb-3")
+              - else
+                = image_tag "default_profile.png", alt: 'image', class: 'rounded-circle mt-5 mb-3', width: "150px"
+              %span.mb-3
+                %i.fa-solid.fa-pen.change-picture-icon{style: "cursor: pointer;"}
+                .d-flex.align-items-center
+                  .col-sm-12= f.file_field :avatar, class: "picture-field form-control d-none"
+                  %i.fa-solid.fa-xmark.close-picture-field.d-none{style: "cursor: pointer;"}
+              %span.font-weight-bold= @current_user.name.titleize
+              %span.text-black-50= @current_user.email
+              %p.fw-bold.mt-5 Social Links
               .col-md-12
-                = f.label :headline, class: 'labels'
-                = f.text_field :headline, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Headline'
-            .row.mt-3
-              .col-md-12
-                = f.label :email, 'Email ID', class: 'labels'
-                = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
-              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-                %div
-                  Currently waiting confirmation for: #{resource.unconfirmed_email}
-            .row.mt-3
-              .col-md-12
-                = f.label :phone, class: 'labels'
-                = f.number_field :phone, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Phone'
-            .row.mt-3
-              %h5.labels Birthday
-              .col-md-4
-                = f.label :b_day, 'Day', class: 'labels'
-                = f.number_field :b_day, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Day'
-              .col-md-4
-                = f.label :b_month, 'Month', class: 'labels'
-                = f.number_field :b_month, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Month'
-              .col-md-4
-                = f.label :b_year, 'Year', class: 'labels'
-                = f.number_field :b_year, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Year'
-            .row.mt-3
-              .col-md-6
-                = f.label :blood_group, class: 'labels'
-                = f.text_field :blood_group, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Blood Group'
-              .col-md-6
-                = f.label :gender, class: 'labels'
-                = f.text_field :gender, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Gender'
-            .row.mt-3
-              .col-md-12
-                = f.label :address, class: 'labels'
-                = f.text_area :address, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Address'
-            .row.mt-3
-              .col-md-12
-                = f.label :aadhaar_number, class: 'labels'
-                = f.number_field :aadhaar_number, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Aadhaar Number'
-            .row.mt-3
-              .col-md-12
-                = f.label :password, class: 'labels'
-                %i (leave blank if you don't want to change it)
-                %br/
-                = f.password_field :password, autocomplete: "new-password", class: 'form-control'
-                - if @minimum_password_length
-                  %em
-                    = @minimum_password_length
-                    characters minimum
-            .row.mt-3
-              .col-md-12
-                = f.label :password_confirmation, class: 'labels'
-                %br/
-                = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
-            .row.mt-3
-              .col-md-12
-                = f.label :current_password, class: 'labels'
-                %i (we need your current password to confirm your changes)
-                %br/
-                = f.password_field :current_password, autocomplete: "current-password", class: 'form-control'
-            .mt-5.text-center
-              = f.submit "Save Profile", class: 'btn btn-primary profile-button disabled'
-        .col-md-4
-          .p-3.py-5
-            .d-flex.justify-content-between.align-items-center.experience
-              %span Edit Experience
-              %span.border.px-3.p-1.add-experience
-                %i.fa.fa-plus>
-                \&#160;Experience
-            %br/
-            .col-md-12
-              %label.labels Experience in Designing
-              %input.form-control{:placeholder => "experience", :type => "text", :value => ""}/
-            %br/
-            .col-md-12
-              %label.labels Additional Details
-              %input.form-control{:placeholder => "additional details", :type => "text", :value => ""}/
+                .d-flex.justify-content-between.align-items-center
+                  %i.fas.fa-globe.fa-lg.text-warning
+                  = s.text_area :website, class: 'form-control ms-1', placeholder: 'Website'
+                .d-flex.justify-content-between.align-items-center.mt-3
+                  %i.fab.fa-linkedin.fa-lg{:style => "color: #0077b5;"}
+                  = s.text_area :linkedin, class: 'form-control ms-1', placeholder: 'LinkedIn'
+                .d-flex.justify-content-between.align-items-center.mt-3
+                  %i.fab.fa-github.fa-lg{:style => "color: #333333;"}
+                  = s.text_area :github, class: 'form-control ms-1', placeholder: 'Github'
+          .col-md-5.border-right
+            .p-3.py-5
+              / .d-flex.justify-content-between.align-items-center.mb-3
+              /   %h4.text-right Profile Settings
+              .row.mt-3
+                .col-md-6
+                  = f.label :name, class: 'labels'
+                  = f.text_field :name, class: 'form-control', placeholder: 'Name'
+                .col-md-6
+                  %label.labels Last Name
+                  %input.form-control{:placeholder => "surname", :type => "text", :value => ""}/
+              .row.mt-4
+                .col-md-12
+                  = f.label :headline, class: 'labels'
+                  = f.text_field :headline, class: 'form-control', placeholder: 'Headline'
+              .row.mt-4
+                .col-md-12
+                  = f.label :email, 'Email ID', class: 'labels'
+                  = f.email_field :email, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+                - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                  %div
+                    Currently waiting confirmation for: #{resource.unconfirmed_email}
+              .row.mt-4
+                .col-md-12
+                  = f.label :phone, class: 'labels'
+                  = f.number_field :phone, class: 'form-control', placeholder: 'Phone'
+              .row.mt-4
+                %h5.labels Birthday
+                .col-md-4
+                  = f.label :b_day, 'Day', class: 'labels'
+                  = f.number_field :b_day, class: 'form-control', placeholder: 'Day'
+                .col-md-4
+                  = f.label :b_month, 'Month', class: 'labels'
+                  = f.number_field :b_month, class: 'form-control', placeholder: 'Month'
+                .col-md-4
+                  = f.label :b_year, 'Year', class: 'labels'
+                  = f.number_field :b_year, class: 'form-control', placeholder: 'Year'
+              .row.mt-4
+                .col-md-6
+                  = f.label :blood_group, class: 'labels'
+                  = f.text_field :blood_group, class: 'form-control', placeholder: 'Blood Group'
+                .col-md-6
+                  = f.label :gender, class: 'labels'
+                  = f.text_field :gender, class: 'form-control', placeholder: 'Gender'
+              .row.mt-4
+                .col-md-12
+                  = f.label :address, class: 'labels'
+                  = f.text_area :address, class: 'form-control', placeholder: 'Address'
+              .row.mt-4
+                .col-md-12
+                  = f.label :aadhaar_number, class: 'labels'
+                  = f.number_field :aadhaar_number, class: 'form-control', placeholder: 'Aadhaar Number'
+              .row.mt-4
+                .col-md-12
+                  = f.label :password, class: 'labels'
+                  %i (leave blank if you don't want to change it)
+                  %br/
+                  = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+                  - if @minimum_password_length
+                    %em
+                      = @minimum_password_length
+                      characters minimum
+              .row.mt-4
+                .col-md-12
+                  = f.label :password_confirmation, class: 'labels'
+                  %br/
+                  = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+              .row.mt-4
+                .col-md-12
+                  = f.label :current_password, class: 'labels'
+                  %i (we need your current password to confirm your changes)
+                  %br/
+                  = f.password_field :current_password, autocomplete: "current-password", class: 'form-control'
+          .col-md-4
+            .p-3.py-5
+              / .d-flex.justify-content-between.align-items-center.experience
+              /   %span Edit Experience
+              /   %span.border.px-3.p-1.add-experience
+              /     %i.fa.fa-plus>
+              /     \&#160;Experience
+              .row.mt-3
+                .col-md-6
+                  = s.label :surname, 'Surname', class: 'labels'
+                  = s.text_field :surname, class: 'form-control', placeholder: 'Surname'
+                .col-md-6
+                  = s.label :roll_number, 'Roll No:', class: 'labels'
+                  = s.number_field :roll_number, class: 'form-control', placeholder: 'Roll No.'
+              .row.mt-4
+                .col-md-12
+                  = s.label :admisssion_number, 'Admission No:', class: 'labels'
+                  = s.text_field :admisssion_number, class: 'form-control', placeholder: 'Admission No.'
+              .row.mt-4
+                .col-md-12
+                  = s.label :university_reg_number, 'University Reg.No:', class: 'labels'
+                  = s.text_field :university_reg_number, class: 'form-control', placeholder: 'University Reg.No.'
+              .row.mt-4
+                .col-md-12
+                  = s.label :father_name, "Father's Name", class: 'labels'
+                  = s.text_field :father_name, class: 'form-control', placeholder: "Father's Name"
+              .row.mt-4
+                .col-md-12
+                  = s.label :mother_name, "Mother's Name", class: 'labels'
+                  = s.text_field :mother_name, class: 'form-control', placeholder: "Mother's Name"
+              .row.mt-4
+                .col-md-12
+                  = s.label :parent_phone, 'Parent Phone', class: 'labels'
+                  = s.number_field :parent_phone, class: 'form-control', placeholder: 'Parent Phone'
+              .row.mt-4
+                %h5.labels Admission Date
+                .col-md-4
+                  = s.label :a_day, 'Day', class: 'labels'
+                  = s.number_field :a_day, class: 'form-control', placeholder: 'Day'
+                .col-md-4
+                  = s.label :a_month, 'Month', class: 'labels'
+                  = s.number_field :a_month, class: 'form-control', placeholder: 'Month'
+                .col-md-4
+                  = s.label :a_year, 'Year', class: 'labels'
+                  = s.number_field :a_year, class: 'form-control', placeholder: 'Year'
+              .row.mt-4
+                .col-md-12
+                  = s.label :admisssion_quota, 'Admission Quota', class: 'labels'
+                  = s.text_field :admisssion_quota, class: 'form-control', placeholder: 'Admission Quota'
+              .row.mt-4
+                .col-md-12
+                  = s.label :campus_type, 'Campus Type', class: 'labels'
+                  = s.text_field :campus_type, class: 'form-control', placeholder: 'Campus Type'
+              .row.mt-4
+                .col-md-6
+                  = s.label :religion, 'Religion', class: 'labels'
+                  = s.text_field :religion, class: 'form-control', placeholder: 'Religion'
+                .col-md-6
+                  = s.label :caste, 'Caste', class: 'labels'
+                  = s.text_field :caste, class: 'form-control', placeholder: 'Caste'
+              .row.mt-4
+                .col-md-12
+                  = s.label :category, 'Category', class: 'labels'
+                  = s.text_field :category, class: 'form-control', placeholder: 'Category'
+              .row.mt-4
+                .col-md-6
+                  = s.label :nationality, 'Nationality', class: 'labels'
+                  = s.text_field :nationality, class: 'form-control', placeholder: 'Nationality'
+                .col-md-6
+                  = s.label :state, 'State', class: 'labels'
+                  = s.text_field :state, class: 'form-control', placeholder: 'State'
+              .row.mt-4
+                .col-md-6
+                  = s.label :district, 'District', class: 'labels'
+                  = s.text_field :district, class: 'form-control', placeholder: 'District'
+                .col-md-6
+                  = s.label :taluk, 'Taluk', class: 'labels'
+                  = s.text_field :taluk, class: 'form-control', placeholder: 'Taluk'
+              / .row.mt-4
+              /   .col-md-12
+              /     = s.label :aadhaar_number, 'Signature Photo', class: 'labels'
+              /     = s.text_field :aadhaar_number, class: 'form-control', placeholder: 'Signature Photo'
+        .mt-5.text-center.mb-5
+          = f.submit "Save Profile", class: 'btn btn-primary profile-button disabled'
 
   .container.py-3
     .row.bg-white
@@ -152,4 +230,3 @@
         e.preventDefault()
     }
   });
-
