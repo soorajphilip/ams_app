@@ -42,11 +42,45 @@
                 %input.form-control{:placeholder => "surname", :type => "text", :value => ""}/
             .row.mt-3
               .col-md-12
+                = f.label :headline, class: 'labels'
+                = f.text_field :headline, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Headline'
+            .row.mt-3
+              .col-md-12
                 = f.label :email, 'Email ID', class: 'labels'
                 = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
               - if devise_mapping.confirmable? && resource.pending_reconfirmation?
                 %div
                   Currently waiting confirmation for: #{resource.unconfirmed_email}
+            .row.mt-3
+              .col-md-12
+                = f.label :phone, class: 'labels'
+                = f.number_field :phone, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Phone'
+            .row.mt-3
+              %h5.labels Birthday
+              .col-md-4
+                = f.label :b_day, 'Day', class: 'labels'
+                = f.number_field :b_day, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Day'
+              .col-md-4
+                = f.label :b_month, 'Month', class: 'labels'
+                = f.number_field :b_month, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Month'
+              .col-md-4
+                = f.label :b_year, 'Year', class: 'labels'
+                = f.number_field :b_year, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Year'
+            .row.mt-3
+              .col-md-6
+                = f.label :blood_group, class: 'labels'
+                = f.text_field :blood_group, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Blood Group'
+              .col-md-6
+                = f.label :gender, class: 'labels'
+                = f.text_field :gender, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Gender'
+            .row.mt-3
+              .col-md-12
+                = f.label :address, class: 'labels'
+                = f.text_area :address, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Address'
+            .row.mt-3
+              .col-md-12
+                = f.label :aadhaar_number, class: 'labels'
+                = f.number_field :aadhaar_number, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Aadhaar Number'
             .row.mt-3
               .col-md-12
                 = f.label :password, class: 'labels'

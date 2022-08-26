@@ -19,11 +19,11 @@
             - else
               = image_tag "default_profile.png", alt: 'image', class: 'rounded-circle img-fluid', width: "150px"
             %h5.my-3= @current_user.name.titleize
-            %p.text-muted.mb-1 Full Stack Developer
-            %p.text-muted.mb-4 Bay Area, San Francisco, CA
-            .d-flex.justify-content-center.mb-2
-              %button.btn.btn-primary{:type => "button"} Follow
-              %button.btn.btn-outline-primary.ms-1{:type => "button"} Message
+            %p.text-muted.mb-1= @current_user.headline.titleize
+            %p.text-muted.mb-4= @current_user.address
+            / .d-flex.justify-content-center.mb-2
+            /   %button.btn.btn-primary{:type => "button"} Follow
+            /   %button.btn.btn-outline-primary.ms-1{:type => "button"} Message
         .card.mb-4.mb-lg-0
           .card-body.p-0
             %ul.list-group.list-group-flush.rounded-3
@@ -49,31 +49,25 @@
               .col-sm-3
                 %p.mb-0 Full Name
               .col-sm-9
-                %p.text-muted.mb-0 Johnatan Smith
+                %p.text-muted.mb-0= @current_user.name.titleize
             %hr/
             .row
               .col-sm-3
                 %p.mb-0 Email
               .col-sm-9
-                %p.text-muted.mb-0 example@example.com
+                %p.text-muted.mb-0= @current_user.email
             %hr/
             .row
               .col-sm-3
                 %p.mb-0 Phone
               .col-sm-9
-                %p.text-muted.mb-0 (097) 234-5678
-            %hr/
-            .row
-              .col-sm-3
-                %p.mb-0 Mobile
-              .col-sm-9
-                %p.text-muted.mb-0 (098) 765-4321
+                %p.text-muted.mb-0= @current_user.phone
             %hr/
             .row
               .col-sm-3
                 %p.mb-0 Address
               .col-sm-9
-                %p.text-muted.mb-0 Bay Area, San Francisco, CA
+                %p.text-muted.mb-0= @current_user.address
         .row
           .col-md-6
             .card.mb-4.mb-md-0
