@@ -36,6 +36,16 @@
               %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
                 %i.fab.fa-github.fa-lg{:style => "color: #333333;"}
                 %p.mb-0= @current_user.student_profile.github
+        .card.mb-4.mt-4
+          .card-body.text-center
+            %h5.my-3 Signature
+            - if current_user.signature.present?
+              = image_tag(current_user.signature.variant(resize_to_fill: [150, 150]))
+              .d-flex.justify-content-center.mb-2.mt-3
+                %button.btn.btn-info.me-3{:type => "button"} Preview
+                %button.btn.btn-outline-info{:type => "button"} Download
+            - else
+              %p Empty
       .col-lg-8
         .card.mb-4
           .card-body
