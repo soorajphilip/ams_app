@@ -40,6 +40,20 @@
                 .d-flex.justify-content-between.align-items-center.mt-3
                   %i.fab.fa-github.fa-lg{:style => "color: #333333;"}
                   = s.text_area :github, class: 'form-control ms-1', placeholder: 'Github'
+              %p.fw-bold.mt-5 Signature
+              - if current_user.signature.present?
+                = image_tag(current_user.signature.variant(resize_to_fill: [150, 150]), class: "mb-3")
+                %i.fa-solid.fa-pen.change-signature-icon{style: "cursor: pointer;"}
+              - else
+                %span.mb-3
+                  %p Upload your signature
+                  .d-flex.align-items-center
+                    .col-sm-12= f.file_field :signature, class: "form-control"
+              %span.mb-3
+                %p.signature-text.d-none Upload your signature
+                .d-flex.align-items-center
+                  .col-sm-12= f.file_field :signature, class: "signature-field form-control d-none"
+                  %i.fa-solid.fa-xmark.close-signature-field.d-none{style: "cursor: pointer;"}
           .col-md-5.border-right
             .p-3.py-5
               / .d-flex.justify-content-between.align-items-center.mb-3
@@ -223,10 +237,19 @@
       else {
         $('.profile-button').addClass('disabled')
       }
+    });
+    $("form").bind("keypress", function (e) {
+      if (e.keyCode == 13) {
+          e.preventDefault()
+      }
+    });
+    $('.change-signature-icon').on('click', function(){
+      $(this).addClass('d-none');
+      $('.signature-field, .close-signature-field, .signature-text').removeClass('d-none')
+    });
+    $('.close-signature-field').on('click', function(){
+      $(this).addClass('d-none');
+      $('.signature-field, .signature-text').addClass('d-none');
+      $('.change-signature-icon').removeClass('d-none')
     })
-  });
-  $("form").bind("keypress", function (e) {
-    if (e.keyCode == 13) {
-        e.preventDefault()
-    }
-  });
+  })
