@@ -84,20 +84,20 @@
                 %h5.labels Birthday
                 .col-md-4
                   = f.label :b_day, 'Day', class: 'labels'
-                  = f.number_field :b_day, class: 'form-control', placeholder: 'Day'
+                  = f.select(:b_day, 1..31, { include_blank: 'Select' }, {class: 'form-control'})
                 .col-md-4
                   = f.label :b_month, 'Month', class: 'labels'
-                  = f.number_field :b_month, class: 'form-control', placeholder: 'Month'
+                  = f.select(:b_month, 1..12, { include_blank: 'Select' }, {class: 'form-control'})
                 .col-md-4
                   = f.label :b_year, 'Year', class: 'labels'
-                  = f.number_field :b_year, class: 'form-control', placeholder: 'Year'
+                  = f.select(:b_year, 1900..2022, { include_blank: 'Select' }, {class: 'form-control'})
               .row.mt-4
                 .col-md-6
                   = f.label :blood_group, class: 'labels'
-                  = f.text_field :blood_group, class: 'form-control', placeholder: 'Blood Group'
+                  = f.select(:blood_group, blood_groups, { include_blank: 'Select' }, {class: 'form-control'})
                 .col-md-6
                   = f.label :gender, class: 'labels'
-                  = f.text_field :gender, class: 'form-control', placeholder: 'Gender'
+                  = f.select(:gender, gender, { include_blank: 'Select' }, {class: 'form-control'})
               .row.mt-4
                 .col-md-12
                   = f.label :address, class: 'labels'
@@ -165,13 +165,13 @@
                 %h5.labels Admission Date
                 .col-md-4
                   = s.label :a_day, 'Day', class: 'labels'
-                  = s.number_field :a_day, class: 'form-control', placeholder: 'Day'
+                  = s.select(:a_day, 1..31, { include_blank: 'Select' }, {class: 'form-control'})
                 .col-md-4
                   = s.label :a_month, 'Month', class: 'labels'
-                  = s.number_field :a_month, class: 'form-control', placeholder: 'Month'
+                  = s.select(:a_month, 1..12, { include_blank: 'Select' }, {class: 'form-control'})
                 .col-md-4
                   = s.label :a_year, 'Year', class: 'labels'
-                  = s.number_field :a_year, class: 'form-control', placeholder: 'Year'
+                  = s.select(:a_year, 2010..2050, { include_blank: 'Select' }, {class: 'form-control'})
               .row.mt-4
                 .col-md-12
                   = s.label :admisssion_quota, 'Admission Quota', class: 'labels'

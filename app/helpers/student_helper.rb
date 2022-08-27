@@ -8,4 +8,13 @@ module StudentHelper
       flash_messages << text.html_safe if message
     end.join("\n").html_safe
   end
+
+  def gender
+    [['Male', 'M'], ['Female', 'F'], ['Other', 'O']]
+  end
+
+  def blood_groups
+    [['A+', 'a_pos'], ['A-', 'a_neg'], ['B+', 'b_pos'], ['B-', 'b_neg'], ['O+', 'o_pos'],
+    ['O-', 'o_neg'], ['AB+', 'ab_pos'], ['AB-', 'ab_neg']]
+  end
 end
