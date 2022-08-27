@@ -29,13 +29,13 @@
             %ul.list-group.list-group-flush.rounded-3
               %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
                 %i.fas.fa-globe.fa-lg.text-warning
-                %p.mb-0= @current_user.student_profile.website
+                %a.mb-0.text-dark{href: "#{@current_user.student_profile.website}", target: "_blank"}= @current_user.student_profile.website
               %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
-                %i.fab.fa-linkedin.fa-lg{:style => "color: #0077b5;"}
-                %p.mb-0= @current_user.student_profile.linkedin
+                %i.fab.fa-linkedin.fa-lg{style: "color: #0077b5;"}
+                %a.mb-0.text-dark{href: "#{@current_user.student_profile.linkedin}", target: "_blank"}= @current_user.student_profile.linkedin
               %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
-                %i.fab.fa-github.fa-lg{:style => "color: #333333;"}
-                %p.mb-0= @current_user.student_profile.github
+                %i.fab.fa-github.fa-lg{style: "color: #333333;"}
+                %a.mb-0.text-dark{href: "#{@current_user.student_profile.github}", target: "_blank"}= @current_user.student_profile.github
         .card.mb-4.mt-4
           .card-body.text-center
             %h5.my-3 Signature
