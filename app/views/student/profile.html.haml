@@ -38,11 +38,11 @@
                 %a.mb-0.text-dark{href: "#{@current_user.student_profile.github}", target: "_blank"}= @current_user.student_profile.github
         .card.mb-4.mt-4
           .card-body.text-center
-            %h5.my-3 Signature
-            - if current_user.signature.present?
-              = image_tag(current_user.signature.variant(resize_to_fill: [150, 150]))
+            %h5.mb-3 Signature
+            - if @current_user.signature.present?
+              = image_tag(@current_user.signature.variant(resize_to_fill: [150, 150]))
               .d-flex.justify-content-center.mb-2.mt-3
-                %button.btn.btn-secondary.me-3{:type => "button"} Preview
+                %button.btn.btn-secondary.me-3{"data-bs-target" => "#signatureModal", "data-bs-toggle" => "modal", :type => "button"} Preview
                 %button.btn.btn-outline-secondary{:type => "button"} Download
             - else
               %p Empty
@@ -241,3 +241,12 @@
         /         %p.mt-4.mb-1{:style => "font-size: .77rem;"} Backend API
         /         .progress.rounded.mb-2{:style => "height: 5px;"}
         /           .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "66", :role => "progressbar", :style => "width: 66%"}
+
+#signatureModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "signatureModalLabel", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5#signatureModalLabel.modal-title Signature
+        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+      .modal-body.text-center.my-3
+        = image_tag(@current_user.signature.variant(resize_to_fill: [400, 400]))
