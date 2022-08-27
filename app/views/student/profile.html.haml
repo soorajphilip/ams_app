@@ -14,8 +14,8 @@
       .col-lg-4
         .card.mb-4
           .card-body.text-center
-            - if current_user.avatar.present?
-              = image_tag(current_user.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle img-fluid")
+            - if @current_user.avatar.present?
+              = image_tag(@current_user.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle img-fluid")
             - else
               = image_tag "default_profile.png", alt: 'image', class: 'rounded-circle img-fluid', width: "150px"
             %h5.my-3= @current_user.name.titleize
@@ -42,8 +42,8 @@
             - if @current_user.signature.present?
               = image_tag(@current_user.signature.variant(resize_to_fill: [150, 150]))
               .d-flex.justify-content-center.mb-2.mt-3
-                %button.btn.btn-secondary.me-3{"data-bs-target" => "#signatureModal", "data-bs-toggle" => "modal", :type => "button"} Preview
-                %button.btn.btn-outline-secondary{:type => "button"} Download
+                = link_to 'Preview', rails_blob_path(@current_user.signature, disposition: 'preview'), class: 'btn btn-secondary me-3', target: '_blank'
+                = link_to 'Download', rails_blob_path(@current_user.signature, disposition: 'attachment'), class: 'btn btn-outline-secondary'
             - else
               %p Empty
       .col-lg-8
@@ -241,12 +241,3 @@
         /         %p.mt-4.mb-1{:style => "font-size: .77rem;"} Backend API
         /         .progress.rounded.mb-2{:style => "height: 5px;"}
         /           .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "66", :role => "progressbar", :style => "width: 66%"}
-
-#signatureModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "signatureModalLabel", :tabindex => "-1"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %h5#signatureModalLabel.modal-title Signature
-        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
-      .modal-body.text-center.my-3
-        = image_tag(@current_user.signature.variant(resize_to_fill: [400, 400]))
