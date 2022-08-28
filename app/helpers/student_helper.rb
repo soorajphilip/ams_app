@@ -17,4 +17,10 @@ module StudentHelper
     [['A+', 'a_pos'], ['A-', 'a_neg'], ['B+', 'b_pos'], ['B-', 'b_neg'], ['O+', 'o_pos'],
     ['O-', 'o_neg'], ['AB+', 'ab_pos'], ['AB-', 'ab_neg']]
   end
+
+  def active_url url
+    if current_page?(url)
+      'side-nav-active-link'
+    end
+  end
 end

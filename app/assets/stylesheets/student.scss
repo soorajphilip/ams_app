@@ -2,3 +2,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "admin-lte/dist/css/adminlte";
 @import "toastr/toastr";
+
+.side-nav-active-link {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}

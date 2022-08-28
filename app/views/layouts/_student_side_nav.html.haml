@@ -15,36 +15,36 @@
       .info
         = link_to current_user.name.titleize, s_my_profile_path, class: 'd-block'
     / Sidebar Menu
-  /   %nav.mt-2
-  /     %ul.nav.nav-pills.nav-sidebar.flex-column{"data-accordion" => "false", "data-widget" => "treeview", :role => "menu"}
-  /       /
-  /         Add icons to the links using the .nav-icon class
-  /         with font-awesome or any other icon font library
-  /       %li.nav-item.has-treeview.menu-open
-  /         %a.nav-link.active{:href => "#"}
-  /           %i.nav-icon.fas.fa-tachometer-alt
-  /           %p
-  /             Dashboard
-  /             %i.right.fas.fa-angle-left
-  /         %ul.nav.nav-treeview
-  /           %li.nav-item
-  /             %a.nav-link.active{:href => "./index.html"}
-  /               %i.far.fa-circle.nav-icon
-  /               %p Dashboard v1
-  /           %li.nav-item
-  /             %a.nav-link{:href => "./index2.html"}
-  /               %i.far.fa-circle.nav-icon
-  /               %p Dashboard v2
-  /           %li.nav-item
-  /             %a.nav-link{:href => "./index3.html"}
-  /               %i.far.fa-circle.nav-icon
-  /               %p Dashboard v3
-  /       %li.nav-item
-  /         %a.nav-link{:href => "pages/widgets.html"}
-  /           %i.nav-icon.fas.fa-th
-  /           %p
-  /             Widgets
-  /             %span.right.badge.badge-danger New
+    %nav.mt-2
+      %ul.nav.nav-pills.nav-sidebar.flex-column{"data-accordion" => "false", "data-widget" => "treeview", :role => "menu"}
+        /
+          Add icons to the links using the .nav-icon class
+          with font-awesome or any other icon font library
+        / %li.nav-item.has-treeview.menu-open
+        /   %a.nav-link.active{:href => "#"}
+        /     %i.nav-icon.fas.fa-tachometer-alt
+        /     %p
+        /       Dashboard
+        /       %i.right.fas.fa-angle-left
+        /   %ul.nav.nav-treeview
+        /     %li.nav-item
+        /       %a.nav-link.active{:href => "./index.html"}
+        /         %i.far.fa-circle.nav-icon
+        /         %p Dashboard v1
+        /     %li.nav-item
+        /       %a.nav-link{:href => "./index2.html"}
+        /         %i.far.fa-circle.nav-icon
+        /         %p Dashboard v2
+        /     %li.nav-item
+        /       %a.nav-link{:href => "./index3.html"}
+        /         %i.far.fa-circle.nav-icon
+        /         %p Dashboard v3
+        %li.nav-item{class: active_url(student_assignments_path)}
+          = link_to student_assignments_path, class: 'nav-link' do
+            %i.nav-icon.fa-solid.fa-list
+            %p
+              Assignments
+              / %span.right.badge.badge-danger New
   /       %li.nav-item.has-treeview
   /         %a.nav-link{:href => "#"}
   /           %i.nav-icon.fas.fa-copy
@@ -81,5 +81,5 @@
   /             %a.nav-link{:href => "pages/layout/collapsed-sidebar.html"}
   /               %i.far.fa-circle.nav-icon
   /               %p Collapsed Sidebar
-  /   / /.sidebar-menu
-  / / /.sidebar
+  /   /.sidebar-menu
+  / /.sidebar
