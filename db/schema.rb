@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_26_142853) do
+ActiveRecord::Schema.define(version: 2022_08_28_165201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,9 @@ ActiveRecord::Schema.define(version: 2022_08_26_142853) do
     t.string "github"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "course"
+    t.string "stream"
+    t.integer "current_semester"
     t.index ["user_id"], name: "index_student_profiles_on_user_id"
   end
 
