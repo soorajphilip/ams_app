@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   namespace :student, path: '/s' do
     resources :assignments
+    resources :attendance, as: 'attends'
   end
 end

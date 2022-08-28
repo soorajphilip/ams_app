@@ -44,6 +44,11 @@
             %i.nav-icon.fa-solid.fa-list
             %p
               Assignments
+        %li.nav-item{class: active_url(student_attends_path)}
+          = link_to student_attends_path, class: 'nav-link' do
+            %i.nav-icon.fa-solid.fa-calendar-check
+            %p
+              Attendance
               / %span.right.badge.badge-danger New
   /       %li.nav-item.has-treeview
   /         %a.nav-link{:href => "#"}
