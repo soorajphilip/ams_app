@@ -17,8 +17,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                                                         :phone, :address, :blood_group, :aadhaar_number,
                                                                         :headline,
                                                                         student_profile_attributes: [:id, :website, :linkedin,
-                                                                          :github, :surname, :roll_number, :admisssion_number,
-                                                                          :university_reg_number, :father_name, :mother_name,
+                                                                          :github, :surname, :roll_number,
+                                                                          :father_name, :mother_name,
                                                                           :parent_phone, :a_day, :a_month, :a_year, :admisssion_quota,
                                                                           :campus_type, :religion, :caste, :category, :nationality,
                                                                           :state, :district, :taluk])}

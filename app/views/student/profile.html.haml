@@ -24,7 +24,50 @@
             / .d-flex.justify-content-center.mb-2
             /   %button.btn.btn-primary{:type => "button"} Follow
             /   %button.btn.btn-outline-primary.ms-1{:type => "button"} Message
-        .card.mb-4.mb-lg-0
+        .card.mb-4
+          .card-body.p-0
+            %ul.list-group.list-group-flush.rounded-3
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 Course
+                .col-sm-5
+                  %p.text-muted.mb-0= @current_user.student_profile.course
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 Stream
+                .col-sm-5
+                  %p.text-muted.mb-0= @current_user.student_profile.stream
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 University Reg No.
+                .col-sm-5
+                  %p.text-muted.mb-0= @current_user.student_profile.university_reg_number
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 Admission No.
+                .col-sm-5
+                  %p.text-muted.mb-0= @current_user.student_profile.admisssion_number
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 Admission Date
+                .col-sm-5
+                  %p.text-muted.mb-0= "#{@current_user.student_profile.a_day} - #{@current_user.student_profile.a_month} - #{@current_user.student_profile.a_year}"
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 Admission Quota
+                .col-sm-5
+                  %p.text-muted.mb-0= @current_user.student_profile.admisssion_quota
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 Current Semester
+                .col-sm-5
+                  %p.text-muted.mb-0= @current_user.student_profile.current_semester
+              %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
+                .col-sm-5
+                  %p.mb-0 Roll Number
+                .col-sm-5
+                  %p.text-muted.mb-0= @current_user.student_profile.roll_number
+        .card.mb-4
           .card-body.p-0
             %ul.list-group.list-group-flush.rounded-3
               %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
@@ -36,7 +79,7 @@
               %li.list-group-item.d-flex.justify-content-between.align-items-center.p-3
                 %i.fab.fa-github.fa-lg{style: "color: #333333;"}
                 %a.mb-0.text-dark{href: "#{@current_user.student_profile.github}", target: "_blank"}= @current_user.student_profile.github
-        .card.mb-4.mt-4
+        .card.mb-4
           .card-body.text-center
             %h5.mb-3 Signature
             - if @current_user.signature.present?
@@ -95,43 +138,13 @@
               .col-sm-3
                 %p.mb-0 Blood Group
               .col-sm-9
-                %p.text-muted.mb-0= @current_user.blood_group
+                %p.text-muted.mb-0= @blood_group
             %hr/
             .row
               .col-sm-3
                 %p.mb-0 D.O.B
               .col-sm-9
                 %p.text-muted.mb-0= "#{@current_user.b_day} - #{@current_user.b_month} - #{@current_user.b_year}"
-            %hr/
-            .row
-              .col-sm-3
-                %p.mb-0 Roll Number
-              .col-sm-9
-                %p.text-muted.mb-0= @current_user.student_profile.roll_number
-            %hr/
-            .row
-              .col-sm-3
-                %p.mb-0 Admission Number
-              .col-sm-9
-                %p.text-muted.mb-0= @current_user.student_profile.admisssion_number
-            %hr/
-            .row
-              .col-sm-3
-                %p.mb-0 University Reg Number
-              .col-sm-9
-                %p.text-muted.mb-0= @current_user.student_profile.university_reg_number
-            %hr/
-            .row
-              .col-sm-3
-                %p.mb-0 Admission Date
-              .col-sm-9
-                %p.text-muted.mb-0= "#{@current_user.student_profile.a_day} - #{@current_user.student_profile.a_month} - #{@current_user.student_profile.a_year}"
-            %hr/
-            .row
-              .col-sm-3
-                %p.mb-0 Admission Quota
-              .col-sm-9
-                %p.text-muted.mb-0= @current_user.student_profile.admisssion_quota
             %hr/
             .row
               .col-sm-3
