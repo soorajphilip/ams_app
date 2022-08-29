@@ -1,7 +1,7 @@
-= render 'shared/app_logo'
 %section.vh-100
   .container.h-100
     .row.d-flex.justify-content-center.align-items-center.h-100
+      = render '/shared/home_navbar'
       .col-lg-12.col-xl-11
         .row.justify-content-center
           .col-md-10.col-lg-6.col-xl-5.order-2.order-lg-1
@@ -45,3 +45,4 @@
             Already Signed up? #{render "devise/shared/links"}
           .col-md-10.col-lg-6.col-xl-7.d-flex.align-items-center.order-1.order-lg-2
             %img.img-fluid{:alt => "Sample image", :src => "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"}/
+      = render '/shared/home_footer'

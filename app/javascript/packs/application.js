@@ -21,3 +21,5 @@ window.$ = window.jQuery = jQuery;
 require("bootstrap");
 
 global.toastr = require("toastr")
+
+require("packs/home")

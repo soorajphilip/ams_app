@@ -1,0 +1,270 @@
+%main#top.main
+  = render '/shared/home_navbar'
+  %section#home.py-0
+    .bg-holder.d-none.d-md-block{:style => "background-image: url(#{image_path('home/illustrations/hero-section.png')}); background-position:right bottom;background-size:contain;"}
+    / /.bg-holder
+
+    .bg-holder.d-block.d-md-none{:style => "background-image:url(assets/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;"}
+    / /.bg-holder
+    .container
+      .row.align-items-center.min-vh-md-75
+        .col-md-7.col-lg-6.py-6.text-sm-start.text-center
+          %h1.mt-6.mb-sm-4.display-4.fw-semi-bold.lh-sm.fs-4.fs-lg-6.fs-xxl-7
+            = "#{greeting_time},"
+            = succeed "Welcome to Ams" do
+              %br.d-block.d-lg-none.d-xl-block/
+          %p.mb-4.fs-1 The best academic management platform
+          .pt-3
+            %form
+              .input-group.w-xl-75.w-xxl-50.d-flex.flex-end-center
+                %input#formGroupExampleInput.form-control.rounded-pill.border-0.font-base{:placeholder => "Search books, articles, keywords", :type => "text"}/
+                = image_tag 'home/illustrations/search.png', alt: '', class: 'input-box-icon me-3', width: '18'
+  / ============================================
+  / <section> begin ============================
+  %section
+    .container
+      .row.justify-content-center
+        .col-auto.mb-5.mb-md-7
+          %h1.fw-semi-bold.text-warning
+            Our
+            %span.text-1100 resources
+      .row
+        .col-sm-6.col-lg-3.mb-4.mb-lg-0.text-center
+          .px-0.px-lg-3
+            = image_tag 'home/gallery/researchers.png', alt: '', class: 'img-fluid mb-4', width: '100'
+            %h3.h5.mb-4.font-base Researchers
+            %p.lh-lg Register online Discover tools and manage alerts Learn about how to access
+        .col-sm-6.col-lg-3.mb-4.mb-lg-0.text-center
+          .px-0.px-lg-3
+            = image_tag 'home/gallery/librarian.png', alt: '', class: 'img-fluid mb-4', width: '100'
+            %h3.h5.mb-4.font-base Librarian
+            %p.lh-lg Manage your account View products and solutions Find resources and support
+        .col-sm-6.col-lg-3.mb-4.mb-lg-0.text-center
+          .px-0.px-lg-3
+            = image_tag 'home/gallery/societies.png', alt: '', class: 'img-fluid mb-4', width: '100'
+            %h3.h5.mb-4.font-base Societies
+            %p.lh-lg Publish with Wiley Explore our resource library Learn about topics and trends
+        .col-sm-6.col-lg-3.mb-4.mb-lg-0.text-center
+          .px-0.px-lg-3
+            = image_tag 'home/gallery/authors.png', alt: '', class: 'img-fluid mb-4', width: '100'
+            %h3.h5.mb-4.font-base Authors
+            %p.lh-lg Submit a paper Track your article Learn about Open Access
+    / end of .container
+  / <section> close ============================
+  / ============================================
+  %section#libraries
+    .bg-holder{:style => "background-image: url(#{image_path('home/illustrations/libraries-bg.png')}); background-position:left bottom;background-size:contain;"}
+    / /.bg-holder
+    .container
+      .row.g-xl-0.align-items-center
+        .col-md-5.col-lg-7.text-xl-center
+          = image_tag 'home/illustrations/our-libraries.png', alt: '', class: 'img-fluid mb-5 mb-md-0', width: '620'
+        .col-md-7.col-lg-4.text-center.text-md-start.offset-lg-1.offset-xxl-0
+          %h1.fw-semi-bold.text-warning
+            Our
+            %span.text-1100 libraries
+          %p.pt-3.lh-lg Your reading list is a good place to start, but you will be expected to read more widely too. Use Sevi to search for information on your topic, and to find books, journal articles and other materials in the Library.
+          .py-3
+            %button.btn.btn-lg.btn-primary.rounded-pill.font-base{:type => "submit"} Learn More
+  / ============================================
+  / <section> begin ============================
+  %section#books.py-8
+    .container
+      .row.justify-content-center
+        .col-md-8.col-lg-6.text-center.mb-7
+          %h1.fw-semi-bold.text-warning
+            Best
+            %span.text-1100 seller books
+        .col-lg-9
+          #accordionExample.accordion
+            .accordion-item.mb-5.border.border-x-0.border-bottom-0.border-200
+              #heading1.accordion-header
+                .accordion-button{"aria-controls" => "collapse1", "aria-expanded" => "true", "data-bs-target" => "#collapse1", "data-bs-toggle" => "collapse", :role => "button"}
+                  .row.w-100.justify-content-center
+                    .col-sm-6.font-base
+                      %span.mb-0.fw-bold.text-start.fs-1.text-1200 The Lord of the Rings
+                      %p.my-2 J.R.R Tolkien
+                    .col-8.col-sm-4
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                    .col-4.col-sm-2.text-end
+                      %h5.mb-0.font-base.fw-bold $21
+              #collapse1.accordion-collapse.collapse.shadow-lg.show{"aria-labelledby" => "heading1", "data-bs-parent" => "#accordionExample"}
+                .accordion-body
+                  .row.justify-content-center-center
+                    .col-12.col-sm-2
+                      = image_tag 'home/gallery/lord-rings.png', alt: '', class: 'img-fluid d-block mx-auto mx-sm-0', width: '130'
+                    .col-12.col-sm-9.mt-4.mt-sm-0.d-sm-block.d-flex.flex-column
+                      %ul
+                        %li.fw-semi-bold.text-black Copies Sold: 150 million
+                      %p
+                        The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkiens 1937 fantasy novel The Hobbit, but eventually developed into...
+                        %button.btn.btn-link.px-0.font-base{:type => "button"} read more
+                      %a{:href => "!#"}
+                        = image_tag 'home/gallery/amazon.png', alt: '', class: 'my-1', width: '110'
+            .accordion-item.mb-5.border.border-x-0.border-bottom-0.border-200
+              #heading2.accordion-header
+                .accordion-button.collapsed{"aria-controls" => "collapse2", "aria-expanded" => "true", "data-bs-target" => "#collapse2", "data-bs-toggle" => "collapse", :role => "button"}
+                  .row.w-100.justify-content-center
+                    .col-sm-6.font-base
+                      %span.mb-0.fw-bold.text-start.fs-1.text-1200 A Tale of Two Cities
+                      %p.my-2 Charles Dickens
+                    .col-8.col-sm-4
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                    .col-4.col-sm-2.text-end
+                      %h5.mb-0.font-base.fw-bold $16
+              #collapse2.accordion-collapse.collapse.shadow-lg{"aria-labelledby" => "heading2", "data-bs-parent" => "#accordionExample"}
+                .accordion-body
+                  .row.justify-content-center-center
+                    .col-12.col-sm-2
+                      = image_tag 'home/gallery/two-cities.jpg', alt: '', class: 'img-fluid d-block mx-auto mx-sm-0', width: '130'
+                    .col-12.col-sm-9.mt-4.mt-sm-0.d-sm-block.d-flex.flex-column
+                      %ul
+                        %li.fw-semi-bold.text-black Copies Sold: 150 million
+                      %p
+                        The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkiens 1937 fantasy novel The Hobbit, but eventually developed into...
+                        %button.btn.btn-link.px-0.font-base{:type => "button"} read more
+                      %a{:href => "!#"}
+                        = image_tag 'home/gallery/amazon.png', alt: '', class: 'my-1', width: '110'
+            .accordion-item.mb-5.border.border-x-0.border-bottom-0.border-200
+              #heading3.accordion-header
+                .accordion-button.collapsed{"aria-controls" => "collapse3", "aria-expanded" => "true", "data-bs-target" => "#collapse3", "data-bs-toggle" => "collapse", :role => "button"}
+                  .row.w-100.justify-content-center
+                    .col-sm-6.font-base
+                      %span.mb-0.fw-bold.text-start.fs-1.text-1200 The Little Princess
+                      %p.my-2 Antoine de Saint-Exupéry
+                    .col-8.col-sm-4
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                    .col-4.col-sm-2.text-end
+                      %h5.mb-0.font-base.fw-bold $11
+              #collapse3.accordion-collapse.collapse.shadow-lg{"aria-labelledby" => "heading3", "data-bs-parent" => "#accordionExample"}
+                .accordion-body
+                  .row.justify-content-center-center
+                    .col-12.col-sm-2
+                      = image_tag 'home/gallery/little-princess.jpg', alt: '', class: 'img-fluid d-block mx-auto mx-sm-0', width: '130'
+                    .col-12.col-sm-9.mt-4.mt-sm-0.d-sm-block.d-flex.flex-column
+                      %ul
+                        %li.fw-semi-bold.text-black Copies Sold: 150 million
+                      %p
+                        The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkiens 1937 fantasy novel The Hobbit, but eventually developed into...
+                        %button.btn.btn-link.px-0.font-base{:type => "button"} read more
+                      %a{:href => "!#"}
+                        = image_tag 'home/gallery/amazon.png', alt: '', class: 'my-1', width: '110'
+            .accordion-item.mb-5.border.border-x-0.border-bottom-0.border-200
+              #heading4.accordion-header
+                .accordion-button.collapsed{"aria-controls" => "collapse4", "aria-expanded" => "true", "data-bs-target" => "#collapse4", "data-bs-toggle" => "collapse", :role => "button"}
+                  .row.w-100.justify-content-center
+                    .col-sm-6.font-base
+                      %span.mb-0.fw-bold.text-start.fs-1.text-1200 The Hobbit
+                      %p.my-2 J.R.R Tolkien
+                    .col-8.col-sm-4
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                    .col-4.col-sm-2.text-end
+                      %h5.mb-0.font-base.fw-bold $20
+              #collapse4.accordion-collapse.collapse.shadow-lg{"aria-labelledby" => "heading4", "data-bs-parent" => "#accordionExample"}
+                .accordion-body
+                  .row.justify-content-center-center
+                    .col-12.col-sm-2
+                      = image_tag 'home/gallery/hobbit.jpg', alt: '', class: 'img-fluid d-block mx-auto mx-sm-0', width: '130'
+                    .col-12.col-sm-9.mt-4.mt-sm-0.d-sm-block.d-flex.flex-column
+                      %ul
+                        %li.fw-semi-bold.text-black Copies Sold: 150 million
+                      %p
+                        The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkiens 1937 fantasy novel The Hobbit, but eventually developed into...
+                        %button.btn.btn-link.px-0.font-base{:type => "button"} read more
+                      %a{:href => "!#"}
+                        = image_tag 'home/gallery/amazon.png', alt: '', class: 'my-1', width: '110'
+            .accordion-item.mb-5.border.border-x-0.border-bottom-0.border-200
+              #heading5.accordion-header
+                .accordion-button.collapsed{"aria-controls" => "collapse5", "aria-expanded" => "true", "data-bs-target" => "#collapse5", "data-bs-toggle" => "collapse", :role => "button"}
+                  .row.w-100.justify-content-center
+                    .col-sm-6.font-base
+                      %span.mb-0.fw-bold.text-start.fs-1.text-1200 Alices Adventures in Wonderland
+                      %p.my-2 Lewis Carroll
+                    .col-8.col-sm-4
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                      %svg.bi.bi-star-fill{:fill => "#FFCC00", :height => "16", :viewbox => "0 0 16 16", :width => "16", :xmlns => "http://www.w3.org/2000/svg"}
+                        %path{:d => "M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"}
+                    .col-4.col-sm-2.text-end
+                      %h5.mb-0.font-base.fw-bold $12
+              #collapse5.accordion-collapse.collapse.shadow-lg{"aria-labelledby" => "heading5", "data-bs-parent" => "#accordionExample"}
+                .accordion-body
+                  .row.justify-content-center-center
+                    .col-12.col-sm-2
+                      = image_tag 'home/gallery/alice.jpg', alt: '', class: 'img-fluid d-block mx-auto mx-sm-0', width: '130'
+                    .col-12.col-sm-9.mt-4.mt-sm-0.d-sm-block.d-flex.flex-column
+                      %ul
+                        %li.fw-semi-bold.text-black Copies Sold: 150 million
+                      %p
+                        The Lord of the Rings is an epic high-fantasy novel written by English author J. R. R. Tolkien. The story began as a sequel to Tolkiens 1937 fantasy novel The Hobbit, but eventually developed into...
+                        %button.btn.btn-link.px-0.font-base{:type => "button"} read more
+                      %a{:href => "!#"}
+                        = image_tag 'home/gallery/amazon.png', alt: '', class: 'my-1', width: '110'
+        .col-lg-12.d-flex.justify-content-center
+          %button.btn.btn-lg.btn-primary.rounded-pill.font-base{:type => "submit"} Find More
+    / end of .container
+  / <section> close ============================
+  / ============================================
+  %section.py-6
+    .bg-holder{:style => "background-image: url(#{image_path('home/illustrations/cta-bg.png')}); background-position:right bottom;background-size:contain;"}
+    / /.bg-holder
+    .container
+      .row.align-items-center
+        .col-md-5.col-lg-7.order-md-1.text-end
+          = image_tag 'home/illustrations/cta.png', alt: '', class: 'img-fluid mb-4 mb-md-0', width: '670'
+        .col-md-7.col-lg-5.text-center.text-md-start
+          %h1.fw-semi-bold.text-warning.lh-base
+            Create
+            %span.text-1100
+              your own
+              = succeed "mobile" do
+                %br/
+          %p.my-4.lh-lg Create your own library on your phone easily with Sevi mobile app. Get it free on Google Play Store for android and Download on the App Store for iOS for free.
+          .d-flex.justify-content-center.d-md-inline-block
+            %a.pe-2.pe-sm-3.pe-md-4{:href => "!#"}
+              = image_tag 'home/gallery/google-play.png', alt: '', width: '160'
+            %a{:href => "!#"}
+              = image_tag 'home/gallery/app-store.png', alt: '', width: '160'
+  = render '/shared/home_footer'

@@ -1,7 +1,7 @@
-= render 'shared/app_logo'
 %section.vh-100
   .container-fluid.h-100
     .row.d-flex.justify-content-center.align-items-center.h-100
+      = render '/shared/home_navbar'
       .col-md-9.col-lg-6.col-xl-5
         %img.img-fluid{:alt => "Sample image", :src => "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"}/
       .col-md-8.col-lg-6.col-xl-4.offset-xl-1
@@ -9,18 +9,6 @@
           = render 'shared/alerts'
         %p.text-center.h1.fw-bold.mb-5 Sign in
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .d-flex.flex-row.align-items-center.justify-content-center.justify-content-lg-start
-            %p.lead.fw-normal.mb-0.me-3 Sign in with
-            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
-              %i.fab.fa-google
-            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
-              %i.fab.fa-facebook-f
-            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
-              %i.fab.fa-twitter
-            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
-              %i.fab.fa-linkedin-in
-          .divider.d-flex.align-items-center.my-4
-            %p.text-center.fw-bold.mx-3.mb-0 Or
           / Email input
           .form-outline.mb-4.field
             = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control form-control-lg', id: 'form3Example3', placeholder: 'Enter a valid email address'
@@ -35,5 +23,17 @@
                 = f.label :remember_me, class: 'form-check-label', for: 'form2Example3'
           .text-center.text-lg-start.mt-4.pt-2.actions
             = f.submit "Login", class: 'btn btn-primary btn-lg', style: "padding-left: 2.5rem; padding-right: 2.5rem;"
+          .divider.d-flex.align-items-center.my-4
+            %p.text-center.fw-bold.mx-3.mb-0 Or
+          .d-flex.flex-row.align-items-center.justify-content-center.justify-content-lg-start
+            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
+              %i.fab.fa-google
+            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
+              %i.fab.fa-facebook-f
+            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
+              %i.fab.fa-twitter
+            %button.btn.btn-primary.btn-floating.mx-1{:type => "button"}
+              %i.fab.fa-linkedin-in
         %br/
         = render "devise/shared/links"
+      = render '/shared/home_footer'
