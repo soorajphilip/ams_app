@@ -1,0 +1,34 @@
+%section
+  .container.py-3
+    .d-flex.justify-content-between
+      %h2.mb-3 Assignments
+    .row.ms-2.mt-2
+      .d-flex.align-items-center
+        %h5 Select Semester
+        .col-md-1
+          = select_tag('semester', options_for_select([['S1',1],['S2',2],['S3',3],['S4',4],['S5',5],['S6',6],['S7',7],['S8',8]], @user.student_profile.current_semester ), class:"form-control")
+    .row.ms-2.mt-5
+      %table.table.table-striped.table-hover.table-bordered
+        %h5.fw-bold.text-center Assignment 1
+        %thead
+          %tr
+            %th{:scope => "col"} Subject
+            %th{:scope => "col"} Mark
+            %th{:scope => "col"} Max. Marks
+        %tbody
+          %tr
+            %td CE488-DISASTER MANAGEMENT
+            %td 10
+            %td 10
+          %tr
+            %td EC468-SECURE COMMUNICATION
+            %td 5
+            %td 10
+          %tr
+            %td EC404-ADVANCED COMMUNICATION SYSTEMS
+            %td 8
+            %td 10
+          %tr
+            %td EC402-Nano Electronics
+            %td 3
+            %td 10
