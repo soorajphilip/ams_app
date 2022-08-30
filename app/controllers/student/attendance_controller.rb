@@ -1,5 +1,4 @@
-class Student::AttendanceController < ApplicationController
-  layout 'student'
+class Student::AttendanceController < StudentController
 
   def index
 	end

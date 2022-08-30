@@ -2,15 +2,15 @@
   .container.py-3
     .d-flex.justify-content-between
       %h2.mb-3 Edit Profile
-      = link_to 'Back', s_my_profile_path, class: 'btn btn-primary mb-3'
+      = link_to 'Back', student_profile_index_path, class: 'btn btn-primary mb-3'
     .row
       .col
         %nav.bg-light.rounded-3.p-3.mb-4{"aria-label" => "breadcrumb"}
           %ol.breadcrumb.mb-0
             %li.breadcrumb-item
-              = link_to 'Dashboard', s_dashboard_path, class: 'text-black'
+              = link_to 'Dashboard', student_dashboard_index_path, class: 'text-black'
             %li.breadcrumb-item
-              = link_to 'Profile', s_my_profile_path, class: 'text-black'
+              = link_to 'Profile', student_profile_index_path, class: 'text-black'
             %li.breadcrumb-item.active{"aria-current" => "page"} Edit Profile
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = render "devise/shared/error_messages", resource: resource

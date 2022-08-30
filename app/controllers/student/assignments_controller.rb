@@ -1,5 +1,4 @@
-class Student::AssignmentsController < ApplicationController
-  layout 'student'
+class Student::AssignmentsController < StudentController
   before_action :set_current_user
 
   def index

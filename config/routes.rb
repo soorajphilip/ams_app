@@ -12,15 +12,19 @@ Rails.application.routes.draw do
     get 'clients', to: 'home#clients'
   end
 
-  get '/s/dashboard', to: 'student#index'
-  get '/s/my-profile', to: 'student#profile'
-
   namespace :student, path: '/s' do
+
+    resources :profile
+
+    resources :dashboard
+
     resources :assignments
+
     resources :attendance, as: 'attends'
   end
 
   namespace :admin, path: '/a' do
+
     resources :dashboard
   end
 end
