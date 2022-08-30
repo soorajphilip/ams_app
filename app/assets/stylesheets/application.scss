@@ -3,3 +3,11 @@
 @import "home";
 @import "pricing";
 @import "clients";
+
+//landing page scroll-to-top button
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+}
