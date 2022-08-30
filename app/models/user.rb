@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum role: [:user, :admin, :teacher, :student]
+  after_initialize :set_default_role, :if => :new_record?
+
   has_one_attached :avatar
   has_one_attached :signature
 
@@ -14,4 +17,8 @@ class User < ApplicationRecord
               file_content_type: { allow: ['image/jpeg', 'image/png', 'image/gif'] }
   validates :signature, file_size: { less_than_or_equal_to: 5.megabytes },
               file_content_type: { allow: ['image/jpeg', 'image/png', 'image/gif'] }
+
+  def set_default_role
+    self.role ||= :user
+  end
 end
