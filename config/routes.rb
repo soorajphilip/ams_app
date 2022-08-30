@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
 
   authenticated :user do
-    root 'student#index', as: :root
+    root 'student/dashboard#index', as: :root
   end
 
   unauthenticated :user do
