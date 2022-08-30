@@ -1,11 +1,7 @@
 %main#top.main
-  = render '/shared/home_navbar'
   %section#home.py-0
     .bg-holder.d-none.d-md-block{:style => "background-image: url(#{image_path('home/illustrations/hero-section.png')}); background-position:right bottom;background-size:contain;"}
-    / /.bg-holder
-
     .bg-holder.d-block.d-md-none{:style => "background-image:url(assets/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;"}
-    / /.bg-holder
     .container
       .row.align-items-center.min-vh-md-75
         .col-md-7.col-lg-6.py-6.text-sm-start.text-center
@@ -19,8 +15,6 @@
               .input-group.w-xl-75.w-xxl-50.d-flex.flex-end-center
                 %input#formGroupExampleInput.form-control.rounded-pill.border-0.font-base{:placeholder => "Search books, articles, keywords", :type => "text"}/
                 = image_tag 'home/illustrations/search.png', alt: '', class: 'input-box-icon me-3', width: '18'
-  / ============================================
-  / <section> begin ============================
   %section
     .container
       .row.justify-content-center
@@ -49,9 +43,6 @@
             = image_tag 'home/gallery/authors.png', alt: '', class: 'img-fluid mb-4', width: '100'
             %h3.h5.mb-4.font-base Authors
             %p.lh-lg Submit a paper Track your article Learn about Open Access
-    / end of .container
-  / <section> close ============================
-  / ============================================
   %section#libraries
     .bg-holder{:style => "background-image: url(#{image_path('home/illustrations/libraries-bg.png')}); background-position:left bottom;background-size:contain;"}
     / /.bg-holder
@@ -66,8 +57,6 @@
           %p.pt-3.lh-lg Your reading list is a good place to start, but you will be expected to read more widely too. Use Sevi to search for information on your topic, and to find books, journal articles and other materials in the Library.
           .py-3
             %button.btn.btn-lg.btn-primary.rounded-pill.font-base{:type => "submit"} Learn More
-  / ============================================
-  / <section> begin ============================
   %section#books.py-8
     .container
       .row.justify-content-center
@@ -244,12 +233,8 @@
                         = image_tag 'home/gallery/amazon.png', alt: '', class: 'my-1', width: '110'
         .col-lg-12.d-flex.justify-content-center
           %button.btn.btn-lg.btn-primary.rounded-pill.font-base{:type => "submit"} Find More
-    / end of .container
-  / <section> close ============================
-  / ============================================
   %section.py-6
     .bg-holder{:style => "background-image: url(#{image_path('home/illustrations/cta-bg.png')}); background-position:right bottom;background-size:contain;"}
-    / /.bg-holder
     .container
       .row.align-items-center
         .col-md-5.col-lg-7.order-md-1.text-end
@@ -267,4 +252,3 @@
               = image_tag 'home/gallery/google-play.png', alt: '', width: '160'
             %a{:href => "!#"}
               = image_tag 'home/gallery/app-store.png', alt: '', width: '160'
-  = render '/shared/home_footer'

@@ -15,4 +15,10 @@ module ApplicationHelper
       "Good Evening"
     end
   end
+
+  def active_nav_link url
+    if current_page?(url)
+      'fw-medium active nav-link-underline'
+    end
+  end
 end

@@ -1,6 +1,6 @@
 %nav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3.backdrop{"data-navbar-on-scroll" => "data-navbar-on-scroll"}
   .container-fluid
-    %a.navbar-brand.d-flex.align-items-center.fw-semi-bold.fs-3{:href => root_path}
+    %a.navbar-brand.d-flex.align-items-center.fw-semi-bold.fs-3{href: root_path}
       = image_tag 'ams_app_icon.png', alt: '', class: 'me-3', width: '60'
       .text-primary.font-base AmsApp
     %button.navbar-toggler.collapsed{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
@@ -8,18 +8,18 @@
     #navbarSupportedContent.collapse.navbar-collapse.border-top.border-lg-0.mt-4.mt-lg-0
       %ul.navbar-nav.ms-auto.pt-2.pt-lg-0.font-base
         %li.nav-item
-          %a.nav-link.fw-medium.active{"aria-current" => "page", :href => "#"} About Us
+          %a.nav-link{href: about_path, class: active_nav_link(about_path)} About Us
         %li.nav-item
-          %a.nav-link{:href => "#books"} Pricing
+          %a.nav-link{href: pricing_path, class: active_nav_link(pricing_path)} Pricing
         %li.nav-item
-          %a.nav-link{:href => "#libraries"} Clients
+          %a.nav-link{href: clients_path, class: active_nav_link(clients_path)} Clients
         %li.nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"} More
           %ul.dropdown-menu{"aria-labelledby" => "navbarDropdown"}
             %li
-              %a.dropdown-item{:href => "#"} Action
+              %a.dropdown-item{href: "#"} Action
             %li
-              %a.dropdown-item{:href => "#"} Another action
+              %a.dropdown-item{href: "#"} Another action
       %form.ps-lg-5
         = link_to 'Login', new_user_session_path, class: 'btn btn-lg btn-primary rounded-pill bg-gradient font-base order-0 me-2'
         = link_to 'Sign Up', new_user_registration_path, class: 'btn btn-lg btn-outline-primary rounded-pill bg-gradient font-base order-0'

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   unauthenticated :user do
     root 'home#index', as: :unauthenticated
+    get 'about', to: 'home#about'
+    get 'pricing', to: 'home#pricing'
+    get 'clients', to: 'home#clients'
   end
 
   get '/s/dashboard', to: 'student#index'
