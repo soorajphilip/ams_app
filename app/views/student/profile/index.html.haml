@@ -18,7 +18,7 @@
               = image_tag(@current_user.avatar.variant(resize_to_fill: [150, 150]), class: "rounded-circle img-fluid")
             - else
               = image_tag "default_profile.png", alt: 'image', class: 'rounded-circle img-fluid', width: "150px"
-            %h5.my-3= @current_user.name.titleize
+            %h5.my-3= @current_user.full_name.titleize
             %p.text-muted.mb-1= @current_user.headline.titleize
             %p.text-muted.mb-4= @current_user.address
             / .d-flex.justify-content-center.mb-2
@@ -94,9 +94,9 @@
           .card-body
             .row
               .col-sm-3
-                %p.mb-0 Full Name
+                %p.mb-0 Name
               .col-sm-9
-                %p.text-muted.mb-0= @current_user.name.titleize
+                %p.text-muted.mb-0= @current_user.full_name.titleize
             %hr/
             .row
               .col-sm-3

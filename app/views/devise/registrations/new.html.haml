@@ -11,7 +11,12 @@
               .d-flex.flex-row.align-items-center.mb-4
                 %i.fas.fa-user.fa-lg.me-3.fa-fw
                 .form-outline.flex-fill.mb-0.field
-                  = f.text_field :name, autofocus: true, class: 'form-control', id: 'form3Example1c', placeholder: 'Your Name'
+                  = f.text_field :first_name, autofocus: true, class: 'form-control', id: 'form3Example1c', placeholder: 'First Name'
+
+              .d-flex.flex-row.align-items-center.mb-4
+                %i.fas.fa-user.fa-lg.me-3.fa-fw
+                .form-outline.flex-fill.mb-0.field
+                  = f.text_field :last_name, autofocus: true, class: 'form-control', id: 'form3Example1c', placeholder: 'Last Name'
 
               .d-flex.flex-row.align-items-center.mb-4
                 %i.fas.fa-envelope.fa-lg.me-3.fa-fw

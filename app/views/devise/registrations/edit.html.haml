@@ -27,7 +27,7 @@
                 .d-flex.align-items-center
                   .col-sm-12= f.file_field :avatar, class: "picture-field form-control d-none"
                   %i.fa-solid.fa-xmark.close-picture-field.d-none{style: "cursor: pointer;"}
-              %span.font-weight-bold= @current_user.name.titleize
+              %span.font-weight-bold= @current_user.full_name.titleize
               %span.text-black-50= @current_user.email
               %p.fw-bold.mt-5 Social Links
               .col-md-12
@@ -60,11 +60,11 @@
               /   %h4.text-right Profile Settings
               .row.mt-3
                 .col-md-6
-                  = f.label :name, class: 'labels'
-                  = f.text_field :name, class: 'form-control', placeholder: 'Name'
+                  = f.label :first_name, class: 'labels'
+                  = f.text_field :first_name, class: 'form-control', placeholder: 'First Name'
                 .col-md-6
-                  %label.labels Last Name
-                  %input.form-control{:placeholder => "surname", :type => "text", :value => ""}/
+                  = f.label :last_name, class: 'labels'
+                  = f.text_field :last_name, class: 'form-control', placeholder: 'Last Name'
               .row.mt-4
                 .col-md-12
                   = f.label :headline, class: 'labels'
